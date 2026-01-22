@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Football Stats | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand">TOP<span>SCORER</span></div>
+                <div class="filters">
+                    <label>RECHERCHE</label>
+                    <input type="text" id="searchInput" placeholder="Nom du joueur..." oninput="updateDashboard()">
+                    <label>CHAMPIONNAT</label>
+                    <select id="leagueFilter" onchange="updateDashboard()">
+                        <option value="all">Tous</option>
+                        <option value="Premier League">Premier League</option>
+                        <option value="La Liga">La Liga</option>
+                        <option value="Serie A">Serie A</option>
+                        <option value="Bundesliga">Bundesliga</option>
+                        <option value="Ligue 1">Ligue 1</option>
+                        <option value="Liga Portugal">Liga Portugal</option>
+                    </select>
+                    <button class="btn-xlsx" onclick="exportToExcel()"> TÉLÉCHARGER XLSX</button>
+                </div>
+            </div>
+            <div class="credits">
+                <p>Réalisé par :</p>
+                <ul>
+                    <li>Cheyma ZMERLI</li>
+                    <li>Val Ezer BITSINDOU BAZOLO</li>
+                    <li>Darryl DAGBA</li>
+                    <li>Lémou Gaye</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="header-mini">
+                <div class="mini-card">
+                    <div class="label">BUTS TOTAL</div>
+                    <div class="value" id="totalGoals">0</div>
+                </div>
+                <div class="mini-card">
+                    <img id="leagueImg" src="" alt="" class="logo-mini">
+                    <span id="leagueName">-</span>
+                </div>
+                <div class="mini-card highlight">
+                    <img id="playerHeadshot" src="" alt="" class="avatar-mini">
+                    <span id="topPlayerName">-</span>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="card chart-box">
+                    <div class="chart-header">
+                        <h3>Performance</h3>
+                        <button class="btn-png" onclick="downloadChart('barChart')">Télechargements du graphique</button>
+                    </div>
+                    <div class="canvas-container"><canvas id="barChart"></canvas></div>
+                </div>
+                <div class="card chart-box">
+                    <div class="chart-header">
+                        <h3>BUTS/MINUTES</h3>
+                        <button class="btn-png" onclick="downloadChart('scatterChart')">Télechargements du graphique</button>
+                    </div>
+                    <div class="canvas-container"><canvas id="scatterChart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="spacer-line"></div>
+
+            <div class="carousel-section">
+                <div class="carousel-container">
+                    <button class="carousel-btn" onclick="moveCarousel(-1)">❮</button>
+                    <div class="carousel-viewport">
+                        <div class="carousel-track" id="carouselTrack"></div>
+                    </div>
+                    <button class="carousel-btn" onclick="moveCarousel(1)">❯</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
