@@ -20,7 +20,7 @@ const imgConfig = {
         "Mika Biereth": "images/player-biereth.webp",
         "Alexander Isak": "images/player-isak.jpeg",
         "Erling Haaland": "images/player-haaland.jpeg",
-        "Jonathan David": "images/player-david.jpeg",
+        "Jonathan David": "portraits/portrait-david.png",
         "Bradley Barcola": "images/player-barcola.jpeg"
     },
     portraits: {
