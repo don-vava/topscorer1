@@ -8,7 +8,7 @@ const imgConfig = {
         "Serie A": "images/logo-seriea.jpeg",
         "Bundesliga": "images/logo-bundesliga.png",
         "Ligue 1": "images/logo-ligue1.jpg",
-        "Liga Portugal": "images/logo-Ligaportugal.png"
+        "Liga Portugal": "images/logo-ligaportugal.png"
     },
     players: {
         "Viktor Gyökeres": "images/player-gyokeres.jpeg",
